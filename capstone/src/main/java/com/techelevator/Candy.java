@@ -1,7 +1,7 @@
 package com.techelevator;
 
 public class Candy extends InventoryItem{
-    public Candy(){
-        super()
+    public Candy(String name, double price){
+        super(name, price);
     }
 }

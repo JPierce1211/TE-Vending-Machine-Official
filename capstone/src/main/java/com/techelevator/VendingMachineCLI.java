@@ -17,6 +17,10 @@ public class VendingMachineCLI {
 	}
 
 	public void run() {
+		//Use this line to test new code
+		// Insert code here =
+
+		// ============= end ============
 
 		Console console = new Console();
 		console.displayMessage(WELCOME_MESSAGE);
