@@ -32,8 +32,9 @@ public class Inventory {
             if(!destinationFile.getName().endsWith(".csv")){
                 System.out.println("Destination file must end with .csv");
             }
-        }catch (FileNotFoundException e){
-            System.out.println(e.getMessage());
+        }catch (Exception e){
+                System.out.println(e.getMessage());
         }
     }
+
 }
