@@ -17,24 +17,26 @@ public class Inventory {
             System.out.println("What file is being searched?");
             String path = userInput.nextLine();
             locateFile = new File(path);
-            if (!locateFile.exists()){
-                System.out.println(path + " does not exist");
+            if (locateFile.exists()){
+                System.out.println(path + " does exist");
             }else if (!locateFile.isFile()){
                 System.out.println(path + " is not a file");
-            }
-            File destinationFile;
-            System.out.println("What is the destination file");
-            path = userInput.nextLine();
-            destinationFile = new File(path);
-            if(path.isEmpty()){
-                System.out.println("The intended is file is empty");
-            }
-            if(!destinationFile.getName().endsWith(".csv")){
-                System.out.println("Destination file must end with .csv");
-            }
+            }try(Scanner inputScanner = new Scanner(locateFile)){
+
         }catch (Exception e){
                 System.out.println(e.getMessage());
+
+            }
+
         }
-    }
+    }//            File destinationFile;
+//            System.out.println("What is the destination file");
+//            path = userInput.nextLine();
+//            destinationFile = new File(path);
+//            if(path.isEmpty()){
+//                System.out.println("The intended is file is empty");
+//            }
+//            if(!destinationFile.getName().endsWith(".csv")){
+//                System.out.println("Destination file must end with .csv");
 
 }
