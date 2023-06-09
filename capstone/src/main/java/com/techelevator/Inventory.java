@@ -31,6 +31,9 @@ public class Inventory {
                 }if(itemType.equals("Drink")){
                     Drinks drink = new Drinks(lineData[1], Double.parseDouble(lineData[2]));
                     inventoryMap.put(lineData[0], drink);
+                }if(itemType.equals("Gum")){
+                    Gum gum = new Gum(lineData[1], Double.parseDouble(lineData[2]));
+                    inventoryMap.put(lineData[0], gum);
                 }
 
 
