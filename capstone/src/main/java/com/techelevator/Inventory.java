@@ -6,30 +6,30 @@ import java.util.Scanner;
 
 public class Inventory {
     private final Scanner userInput = new Scanner(System.in);
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Inventory inventoryRead = new Inventory();
         inventoryRead.run();
     }
-    public void run(){
 
-        try(userInput){
-            File locateFile;
-            System.out.println("What file is being searched?");
-            String path = userInput.nextLine();
-            locateFile = new File(path);
-            if (locateFile.exists()){
-                System.out.println(path + " does exist");
-            }else if (!locateFile.isFile()){
-                System.out.println(path + " is not a file");
-            }try(Scanner inputScanner = new Scanner(locateFile)){
+    public void run() {
+        File readFile = new File("vendingmachine.csv");
+        try (Scanner inputScanner = new Scanner(readFile)) {
+            while (inputScanner.hasNextLine()) {
+                String line = inputScanner.nextLine();
+                String[] lineData = line.split("\\|");
 
-        }catch (Exception e){
-                System.out.println(e.getMessage());
+                if (readFile.exists()) {
 
+                } else if (!readFile.isFile()) {
+
+                }
             }
-
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-    }//            File destinationFile;
+    }
+    //            File destinationFile;
 //            System.out.println("What is the destination file");
 //            path = userInput.nextLine();
 //            destinationFile = new File(path);

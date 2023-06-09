@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class Transaction {
+public class Transaction implements TransactionMessage{
     private String paymentMethod;
     private int differenceAmount;
     private String message;
@@ -20,4 +20,10 @@ public class Transaction {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public String getFoodSound() {
+        return getFoodSound();
+    }
+
 }
