@@ -3,6 +3,10 @@ package com.techelevator;
 import com.techelevator.view.Console;
 import com.techelevator.view.Menu;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class VendingMachineCLI {
 
 	private static final String WELCOME_MESSAGE = "Welcome to Vendo-Matic 800";
@@ -20,15 +24,18 @@ public class VendingMachineCLI {
 		//Use this line to test new code
 		// Insert code here =
 
-		// ============= end ============
-
+		// ============= end ===========
 		Console console = new Console();
 		console.displayMessage(WELCOME_MESSAGE);
+		Inventory inventory = new Inventory();
+		inventory.loadInventory();
+		Map<String, InventoryItem> inventoryMap = new TreeMap<>();
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
+				inventoryMap = inventory.getInventoryMap();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 			}

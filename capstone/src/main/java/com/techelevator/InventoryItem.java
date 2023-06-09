@@ -18,4 +18,6 @@ public class InventoryItem {
     public double getPrice() {
         return price;
     }
+
 }
+
