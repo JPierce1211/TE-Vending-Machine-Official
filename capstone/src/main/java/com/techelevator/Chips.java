@@ -8,7 +8,7 @@ public class Chips extends InventoryItem{
     private String sound;
     public Chips(String name , double price, String sound){
         super(name, price);
-        sound = new String("Crunch Crunch, Yum");
+        this.sound = sound;
     }
 
 

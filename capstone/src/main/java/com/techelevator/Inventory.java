@@ -1,19 +1,24 @@
 package com.techelevator;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Inventory extends VendingMachine{
     private final Scanner userInput = new Scanner(System.in);
-    private Map<String, InventoryItem> inventoryMap = new TreeMap<>();
+    private Map<String, InventoryItem> inventoryChart = new TreeMap<>();
+
+    public Inventory(int capacity) {
+        super(capacity);
+    }
 
 
     public Map<String, InventoryItem> getInventoryMap() {
-        return inventoryMap;
+        return inventoryChart;
+    }
+    public Inventory(int capacity, Map<String, InventoryItem> inventoryList){
+        super(capacity);
     }
 
     public void loadInventory() {
@@ -25,16 +30,16 @@ public class Inventory extends VendingMachine{
                 String itemType = lineData[3];
                 if(itemType.equals("Chip")){
                     Chips chip = new Chips(lineData[1],Double.parseDouble(lineData[2]), "Crunch Crunch, Yum");
-                    inventoryMap.put(lineData[0], chip);
+                    inventoryChart.put(lineData[0], chip);
                 }if(itemType.equals("Candy")){
                     Candy candy = new Candy(lineData[1], Double.parseDouble(lineData[2]),"Munch Munch, Yum");
-                    inventoryMap.put(lineData[0], candy);
+                    inventoryChart.put(lineData[0], candy);
                 }if(itemType.equals("Drink")){
                     Drinks drink = new Drinks(lineData[1], Double.parseDouble(lineData[2]),"Glug Glug, Yum");
-                    inventoryMap.put(lineData[0], drink);
+                    inventoryChart.put(lineData[0], drink);
                 }else {itemType.equals("Gum");
                     Gum gum = new Gum(lineData[1], Double.parseDouble(lineData[2]),"Chew Chew, Yum");
-                    inventoryMap.put(lineData[0], gum);
+                    inventoryChart.put(lineData[0], gum);
                 }
 
 

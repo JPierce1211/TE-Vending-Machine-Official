@@ -13,7 +13,10 @@ public class VendingMachineCLI {
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
-
+	private String sound;
+	public String getFoodSound(){
+		return sound;
+	}
 	private Menu menu;
 
 	public VendingMachineCLI(Menu menu) {
@@ -25,21 +28,27 @@ public class VendingMachineCLI {
 		// Insert code here =
 
 		// ============= end ===========
+		//System.in (Look at command line and File I/O)
 		Console console = new Console();
 		console.displayMessage(WELCOME_MESSAGE);
-		Inventory inventory = new Inventory();
+		Inventory inventory = new Inventory(5);
 		inventory.loadInventory();
 		Map<String, InventoryItem> inventoryMap = new TreeMap<>();
+		inventoryMap = inventory.getInventoryMap();
+		VendingMachine vendingMachine = new VendingMachine(inventoryMap,5);
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
-				inventoryMap = inventory.getInventoryMap();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
+				inventoryMap = vendingMachine.getInventoryList();
+
+				 InventoryItem inventoryOption = inventoryMap.get("//create variable to Capture userInput for slot number");
 			}
-		}
+		}//Insert  Console console = new Console();
+		//console.displayMessage(getFoodSound());
 	}
 
 	public static void main(String[] args) {
