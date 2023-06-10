@@ -11,6 +11,7 @@ public class Inventory {
     private final Scanner userInput = new Scanner(System.in);
     private Map<String, InventoryItem> inventoryMap = new TreeMap<>();
 
+
     public Map<String, InventoryItem> getInventoryMap() {
         return inventoryMap;
     }
@@ -22,18 +23,17 @@ public class Inventory {
                 String line = inputScanner.nextLine();
                 String[] lineData = line.split("\\|");
                 String itemType = lineData[3];
-                String sound = TransactionMessage;
                 if(itemType.equals("Chip")){
-                    Chips chip = new Chips(lineData[1],Double.parseDouble(lineData[2]));
+                    Chips chip = new Chips(lineData[1],Double.parseDouble(lineData[2]), "Crunch Crunch, Yum");
                     inventoryMap.put(lineData[0], chip);
                 }if(itemType.equals("Candy")){
-                    Candy candy = new Candy(lineData[1], Double.parseDouble(lineData[2]));
+                    Candy candy = new Candy(lineData[1], Double.parseDouble(lineData[2]),"Munch Munch, Yum");
                     inventoryMap.put(lineData[0], candy);
                 }if(itemType.equals("Drink")){
-                    Drinks drink = new Drinks(lineData[1], Double.parseDouble(lineData[2]));
+                    Drinks drink = new Drinks(lineData[1], Double.parseDouble(lineData[2]),"Glug Glug, Yum");
                     inventoryMap.put(lineData[0], drink);
                 }else {itemType.equals("Gum");
-                    Gum gum = new Gum(lineData[1], Double.parseDouble(lineData[2]));
+                    Gum gum = new Gum(lineData[1], Double.parseDouble(lineData[2]),"Chew Chew, Yum");
                     inventoryMap.put(lineData[0], gum);
                 }
 

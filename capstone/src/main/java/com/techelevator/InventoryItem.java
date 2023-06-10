@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class InventoryItem implements TransactionMessage{
+public class InventoryItem extends Inventory implements TransactionMessage{
     private String name;
     private double price;
     private String sound;
