@@ -8,10 +8,9 @@ public class VendingMachine{
     private double price;
     private String sound;
 
-    public VendingMachine(Inventory){
-        this.name = name;
-        this.price = price;
-        this.sound = sound;
-    }
+      //  this.name = name;
+      //  this.price = price;
+       // this.sound = sound;
+    //}
     public Map<Inventory, InventoryItem> inventoryList = new TreeMap<>();
 }
