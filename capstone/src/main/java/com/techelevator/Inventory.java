@@ -22,6 +22,7 @@ public class Inventory {
                 String line = inputScanner.nextLine();
                 String[] lineData = line.split("\\|");
                 String itemType = lineData[3];
+                String sound = TransactionMessage;
                 if(itemType.equals("Chip")){
                     Chips chip = new Chips(lineData[1],Double.parseDouble(lineData[2]));
                     inventoryMap.put(lineData[0], chip);
