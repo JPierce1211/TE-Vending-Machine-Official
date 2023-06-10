@@ -5,7 +5,8 @@ import java.util.TreeMap;
 
 public class VendingMachine{
     private int capacity;
-
+    private boolean returnChange;
+    private int balance;
     private int availableMoney;
    private Map<String, InventoryItem> inventoryList = new TreeMap<>();
 public VendingMachine(int capacity){
@@ -19,11 +20,19 @@ public VendingMachine(int capacity){
     public Map<String, InventoryItem> getInventoryList() {
         return inventoryList;
     }
+    public void giveChange(boolean returnChange){
+    this.returnChange = returnChange;
+    }
 
     public int loadMoney(int addMoney){
         availableMoney += 0; //figure out how to intake actual dollar amount
         return availableMoney;
 
+    }
+    public int makePurchase(int availableMoney,){
+    balance = availableMoney - //price of Item
+
+    return balance;
     }
 
 
