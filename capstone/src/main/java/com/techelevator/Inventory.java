@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-public class Inventory {
+public class Inventory extends VendingMachine{
     private final Scanner userInput = new Scanner(System.in);
     private Map<String, InventoryItem> inventoryMap = new TreeMap<>();
 
