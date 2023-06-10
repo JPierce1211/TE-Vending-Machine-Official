@@ -32,7 +32,13 @@ public VendingMachine(int capacity){
     public int makePurchase(int availableMoney,){
     balance = availableMoney - //price of Item
 
-    return balance;
+    if(returnChange = false){
+        System.out.println();
+    }else{
+        return balance;
+    }
+
+
     }
 
 
