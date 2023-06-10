@@ -1,10 +1,13 @@
 package com.techelevator;
 
 import java.math.BigDecimal;
+import java.util.Map;
+import java.util.TreeMap;
 
-public class InventoryItem {
+public class InventoryItem implements TransactionMessage{
     private String name;
     private double price;
+    private String sound;
 
     public InventoryItem(String name, double price){
         this.name = name;
@@ -17,6 +20,10 @@ public class InventoryItem {
 
     public double getPrice() {
         return price;
+    }
+    public final String getFoodSound(){
+        String itemSound = sound;
+        return itemSound;
     }
 
 }
