@@ -29,14 +29,14 @@ public VendingMachine(int capacity){
         return availableMoney;
 
     }
-    public int makePurchase(int availableMoney,){
-    balance = availableMoney - //price of Item
+    public int makePurchase(int availableMoney, Map<String, InventoryItem> inventoryList){
+    balance = availableMoney - inventoryList.get()//price of Item
 
     if(returnChange = false){
         System.out.println();
     }else{
-        return balance;
-    }
+
+    }return balance;
 
 
     }
