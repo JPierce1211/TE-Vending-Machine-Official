@@ -9,9 +9,19 @@ public class InventoryItem{
     private double price;
     private String sound;
 
-    public InventoryItem(String name, double price){
+    public int getItemQuantity() {
+        return itemQuantity;
+    }
+
+    public void setItemQuantity(int itemQuantity) {
+        this.itemQuantity = itemQuantity;
+    }
+
+    private int itemQuantity;
+    public InventoryItem(String name, double price,int itemQuantity){
         this.name = name;
         this.price = price;
+        this.itemQuantity = itemQuantity;
     }
 
 
