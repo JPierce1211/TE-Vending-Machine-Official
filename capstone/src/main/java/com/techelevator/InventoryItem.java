@@ -12,9 +12,9 @@ public class InventoryItem extends Inventory implements TransactionMessage{
         return sound;
     }
 
-    public void setSound(String sound) {
-        this.sound = sound;
-    }
+//    public void setSound(String sound) {
+//        this.sound = sound;
+//    }
 
     private String sound;
 
@@ -31,7 +31,7 @@ public class InventoryItem extends Inventory implements TransactionMessage{
         this.name = name;
         this.price = price;
         this.itemQuantity = itemQuantity;
-        this.sound=itemSound;
+        this.sound= itemSound;
     }
     public void subtractInventory() {
         this.itemQuantity = this.itemQuantity -1;

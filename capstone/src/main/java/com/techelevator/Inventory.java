@@ -29,14 +29,14 @@ public class Inventory extends VendingMachine{
                 if(itemType.equals("Chip")){
                     Chips chip = new Chips(lineData[1],Double.parseDouble(lineData[2]), "Crunch Crunch, Yum!",5);
                     inventoryMap.put(lineData[0], chip);
-                }if(itemType.equals("Candy")){
+                }else if(itemType.equals("Candy")){
                     Candy candy = new Candy(lineData[1], Double.parseDouble(lineData[2]),"Munch Munch, Yum!", 5);
                     inventoryMap.put(lineData[0], candy);
-                }if(itemType.equals("Drink")){
+                }else if(itemType.equals("Drink")){
                     Drinks drink = new Drinks(lineData[1], Double.parseDouble(lineData[2]),"Glug Glug, Yum!",5);
                     inventoryMap.put(lineData[0], drink);
-                }else {itemType.equals("Gum");
-                    Gum gum = new Gum(lineData[1], Double.parseDouble(lineData[2]),"Chew Chew, Yum!", 5);
+                }else if (itemType.equals("Gum")){
+                    Gum gum = new Gum(lineData[1], Double.parseDouble(lineData[2]),"Chew Chew, Yum! Test", 5);
                     inventoryMap.put(lineData[0], gum);
                 }
                 if (readFile.exists()) {
