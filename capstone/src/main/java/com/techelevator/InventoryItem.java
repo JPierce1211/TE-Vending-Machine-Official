@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class InventoryItem{//extends Inventory{
+public class InventoryItem{
     private String name;
     private double price;
     private String sound;
