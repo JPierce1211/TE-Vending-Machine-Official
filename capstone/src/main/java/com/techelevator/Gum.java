@@ -12,7 +12,7 @@ private String sound;
 
     private int itemQuantity;
     public Gum(String name, double price, String sound, int itemQuantity){
-        super(name, price, itemQuantity);
+        super(name, price, itemQuantity,sound);
         this.itemQuantity = itemQuantity;
         sound = new String("Chew Chew, Yum");
     }

@@ -7,6 +7,15 @@ import java.util.TreeMap;
 public class InventoryItem extends Inventory implements TransactionMessage{
     private String name;
     private double price;
+
+    public String getSound() {
+        return sound;
+    }
+
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+
     private String sound;
 
     public int getItemQuantity() {
@@ -18,12 +27,15 @@ public class InventoryItem extends Inventory implements TransactionMessage{
     }
 
     private int itemQuantity;
-    public InventoryItem(String name, double price,int itemQuantity){
+    public InventoryItem(String name, double price,int itemQuantity, String itemSound){
         this.name = name;
         this.price = price;
         this.itemQuantity = itemQuantity;
+        this.sound=itemSound;
     }
-
+    public void subtractInventory() {
+        this.itemQuantity = this.itemQuantity -1;
+    }
     public String getName() {
         return name;
     }

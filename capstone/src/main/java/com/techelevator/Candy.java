@@ -1,6 +1,14 @@
 package com.techelevator;
 
 public class Candy extends InventoryItem{
+    public String getSound() {
+        return sound;
+    }
+
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+
     private String sound;
     public int getItemQuantity() {
         return itemQuantity;
@@ -12,8 +20,9 @@ public class Candy extends InventoryItem{
 
     private int itemQuantity;
     public Candy(String name, double price, String sound,int itemQuantity){
-        super(name, price,itemQuantity);
+        super(name, price,itemQuantity,sound);
         this.itemQuantity = itemQuantity;
-        sound = new String("Munch Munch, Yum");
+        this.sound ="Munch Munch, Yum";
+        //sound = new String("Munch Munch, Yum");
     }
 }

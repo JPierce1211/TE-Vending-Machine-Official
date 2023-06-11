@@ -5,6 +5,14 @@ import java.util.Map;
 import java.util.Set;
 
 public class Chips extends InventoryItem{
+    public String getSound() {
+        return sound;
+    }
+
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+
     private String sound;
 
     public int getItemQuantity() {
@@ -17,9 +25,11 @@ public class Chips extends InventoryItem{
 
     private int itemQuantity;
     public Chips(String name , double price, String sound, int itemQuantity){
-        super(name, price,itemQuantity);
+        super(name, price,itemQuantity,sound);
         this.itemQuantity = itemQuantity;
-        sound = new String("Crunch Crunch, Yum");
+        this.sound ="Crunch Crunch, Yum!";
+        //sound = new String("
+        // m");
     }
 
 
