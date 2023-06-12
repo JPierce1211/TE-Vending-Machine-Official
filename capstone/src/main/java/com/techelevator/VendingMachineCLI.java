@@ -38,8 +38,8 @@ public class VendingMachineCLI {
         Transaction currentTransaction = new Transaction();
         Map<String, InventoryItem> currentInventoryMap = new TreeMap<>();
         /* Create a log for tracking all actions*/
-        String auditPath = "VendorMachinTransactions.log";
-        File logFile = new File(auditPath);
+        String logFilePath = "VendingMachineTransactions.log";
+        File logFile = new File(logFilePath);
         // Open the file in append mode.
         FileWriter logFileWriter = new FileWriter(logFile,true);
         PrintWriter logFilePrintWriter = new PrintWriter(logFileWriter);
@@ -63,7 +63,7 @@ public class VendingMachineCLI {
                         System.out.print("\nPlease feed the money in whole dollars: $ ");
                         String userFeedMoney = userInput.nextLine();
                         currentTransaction.addMoney(Double.parseDouble(userFeedMoney));
-                        logFilePrintWriter.println(formatter.format(date) + " FEED MONEY : $"+ userFeedMoney +" $"+ currentTransaction.getMoneyFeed());
+                        logFilePrintWriter.println(formatter.format(date) + " FEED MONEY: $"+ userFeedMoney +" $"+ currentTransaction.getMoneyFeed());
                         System.out.println("Total Money available: $" + currentTransaction.getMoneyFeed());
                     } else if (purchaseMenuChoice.equals(PURCHASE_MENU_SELECT_PRODUCT)) {
                         currentInventoryMap = inventory.getInventoryMap();
@@ -77,29 +77,28 @@ public class VendingMachineCLI {
                             InventoryItem getInventory = currentInventoryMap.get(selectedItemCode);
                             //check inventory availability
                             if (getInventory.getItemQuantity() < 1) {
-                                System.out.println("\n*** The Item is SOLD OUT ***");
-                                break;
+                                System.out.println("\n*** The item " + getInventory.getName() +" is SOLD OUT ***");
+                                continue;
                             }
                             if (currentTransaction.getMoneyFeed() < getInventory.getPrice()) {
-                                System.out.println("*** Not enough Money for this purchase. The available balance is: $" + currentTransaction.getMoneyFeed() + ", Please feed money.");
-                                break;
+                                System.out.println("Not enough Money for this purchase. The available balance is: $" + currentTransaction.getMoneyFeed() + ", Please feed money.");
+                                continue;
                             }
                             //subtract inventory of the sale
                             getInventory.setItemQuantity(getInventory.getItemQuantity()-1);
                             //subtract transaction money from total feed money
                             currentTransaction.subtractMoney(getInventory.getPrice());
-                            System.out.println("\n*** Your Purchase successfully completed for : " + getInventory.getName() + ", Price : $" + getInventory.getPrice() + " " + getInventory.getSound() + " ***");
-                            logFilePrintWriter.println(formatter.format(date) + " "+ getInventory.getName() +" "+ selectedItemCode +" $"+ currentTransaction.getMoneyFeed());
+                            System.out.println("\nYour Purchase successfully completed for : " + getInventory.getName() + ", Price : $" + getInventory.getPrice() + " " + getInventory.getSound() + " ***");
+                            logFilePrintWriter.println(formatter.format(date) + " "+ getInventory.getName() +" "+ selectedItemCode +" $" + getInventory.getPrice() + " $" + currentTransaction.getMoneyFeed());
                         } catch (Exception e) {
 
-                            System.out.println("\nEntered Item not found.");
+                            System.out.println("\nEntered item not found.");
                         }
                     } else if (purchaseMenuChoice.equals(PURCHASE_MENU_FINISH_TRANSACTION)) {
                         System.out.println("Thanks for Using the Vending Machine purchase menu, Your Balance Money is: $" + currentTransaction.getMoneyFeed());
                         currentTransaction.setMoneyFeed(0);
                         break;
                     }
-
                 }
             } else if (mainMenuChoice.equals(MAIN_MENU_OPTION_Exit)) {
                 System.out.println("Thanks for Using the Vending Machine Bye !!!");
